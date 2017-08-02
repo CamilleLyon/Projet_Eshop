@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "commandes")
@@ -26,12 +28,11 @@ public class Commande implements Serializable {
 	@Column(name = "id_co")
 	private Long idCommande;
 
+	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
 
 	@OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
-	private List<Produit> listeProduits;
-
-	private LigneCommande lcom;
+	private List<LigneCommande> listeLignecommande;
 
 	@ManyToOne
 	@JoinColumn(name = "client_id", referencedColumnName = "id_cl")
@@ -42,13 +43,18 @@ public class Commande implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Commande(Long idCommande, Date dateCommande, List<Produit> listeProduits, LigneCommande lcom,
-			Client client) {
+	public Commande(Long idCommande, Date dateCommande, List<LigneCommande> listeLignecommande, Client client) {
 		super();
 		this.idCommande = idCommande;
 		this.dateCommande = dateCommande;
-		this.listeProduits = listeProduits;
-		this.lcom = lcom;
+		this.listeLignecommande = listeLignecommande;
+		this.client = client;
+	}
+
+	public Commande(Date dateCommande, List<LigneCommande> listeLignecommande, Client client) {
+		super();
+		this.dateCommande = dateCommande;
+		this.listeLignecommande = listeLignecommande;
 		this.client = client;
 	}
 
@@ -73,20 +79,12 @@ public class Commande implements Serializable {
 		this.dateCommande = dateCommande;
 	}
 
-	public List<Produit> getListeProduits() {
-		return listeProduits;
+	public List<LigneCommande> getListeLignecommande() {
+		return listeLignecommande;
 	}
 
-	public void setListeProduits(List<Produit> listeProduits) {
-		this.listeProduits = listeProduits;
-	}
-
-	public LigneCommande getLcom() {
-		return lcom;
-	}
-
-	public void setLcom(LigneCommande lcom) {
-		this.lcom = lcom;
+	public void setListeLignecommande(List<LigneCommande> listeLignecommande) {
+		this.listeLignecommande = listeLignecommande;
 	}
 
 	public Client getClient() {
@@ -101,8 +99,8 @@ public class Commande implements Serializable {
 	public String toString() {
 		return "Commande [" + (idCommande != null ? "idCommande=" + idCommande + ", " : "")
 				+ (dateCommande != null ? "dateCommande=" + dateCommande + ", " : "")
-				+ (listeProduits != null ? "listeProduits=" + listeProduits + ", " : "")
-				+ (lcom != null ? "lcom=" + lcom + ", " : "") + (client != null ? "client=" + client : "") + "]";
+				+ (listeLignecommande != null ? "listeLignecommande=" + listeLignecommande + ", " : "")
+				+ (client != null ? "client=" + client : "") + "]";
 	}
 
 }

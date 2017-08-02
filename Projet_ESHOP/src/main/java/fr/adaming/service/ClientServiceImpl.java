@@ -6,11 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.adaming.dao.IEmployeDao;
 import fr.adaming.dao.IGenericDao;
 import fr.adaming.model.Client;
 
-@Service("ClientServiceBean") // l'annotation pour la définition d'un bean de
+@Service("clientServiceBean") // l'annotation pour la définition d'un bean de
 // service spécifique à
 // Spring IoC
 @Transactional // annotation pour spécifier que la méthode est transactionnelle.
@@ -28,32 +27,32 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public void addClient(Client cl) {
+	public void add(Client cl) {
 		// appel de la méthode de DAO
-				clDao.add(cl);
+		clDao.add(cl);
 
-			}
+	}
 
 	@Override
-	public List<Client> getAllClient() {
-		
+	public List<Client> getAll() {
+
 		return clDao.getAll();
 	}
 
 	@Override
-	public Client getClientByName(String name_cl) {
+	public Client getByName(String name_cl) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void updateClient(Client cl) {
+	public void update(Client cl) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteClient(int id_cl) {
+	public void delete(int id_cl) {
 		// TODO Auto-generated method stub
 
 	}

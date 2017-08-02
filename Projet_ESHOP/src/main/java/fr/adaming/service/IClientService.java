@@ -6,13 +6,13 @@ import fr.adaming.model.Client;
 
 public interface IClientService {
 
-	public void addClient(Client cl);
+	public void add(Client cl);
 
-	public List<Client> getAllClient();
+	public List<Client> getAll();
 
-	public Client getClientByName(String name_cl);
+	public Client getByName(String name_cl);
 
-	public void updateClient(Client cl);
+	public void update(Client cl);
 
-	public void deleteClient(int id_cl);
+	public void delete(int id_cl);
 }

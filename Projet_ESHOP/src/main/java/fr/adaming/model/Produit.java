@@ -1,7 +1,9 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,9 +36,8 @@ public class Produit implements Serializable {
 	@JoinColumn(name = "categorie_id", referencedColumnName = "id_ca")
 	private Categorie categorie;
 
-	@ManyToOne
-	@JoinColumn(name = "commande_id", referencedColumnName = "id_co")
-	private Commande commande;
+	@OneToMany(mappedBy = "produit", cascade = CascadeType.ALL)
+	private List<LigneCommande> listeLignecommande;
 
 	public Produit() {
 		super();
@@ -43,7 +45,7 @@ public class Produit implements Serializable {
 	}
 
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo, Categorie categorie, Commande commande) {
+			boolean selectionne, String photo, Categorie categorie, List<LigneCommande> listeLignecommande) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -53,11 +55,11 @@ public class Produit implements Serializable {
 		this.selectionne = selectionne;
 		this.photo = photo;
 		this.categorie = categorie;
-		this.commande = commande;
+		this.listeLignecommande = listeLignecommande;
 	}
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne, String photo,
-			Categorie categorie, Commande commande) {
+			Categorie categorie, List<LigneCommande> listeLignecommande) {
 		super();
 		this.designation = designation;
 		this.description = description;
@@ -66,7 +68,7 @@ public class Produit implements Serializable {
 		this.selectionne = selectionne;
 		this.photo = photo;
 		this.categorie = categorie;
-		this.commande = commande;
+		this.listeLignecommande = listeLignecommande;
 	}
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
@@ -144,12 +146,12 @@ public class Produit implements Serializable {
 		this.categorie = categorie;
 	}
 
-	public Commande getCommande() {
-		return commande;
+	public List<LigneCommande> getListeLignecommande() {
+		return listeLignecommande;
 	}
 
-	public void setCommande(Commande commande) {
-		this.commande = commande;
+	public void setListeLignecommande(List<LigneCommande> listeLignecommande) {
+		this.listeLignecommande = listeLignecommande;
 	}
 
 	@Override
@@ -159,7 +161,7 @@ public class Produit implements Serializable {
 				+ (description != null ? "description=" + description + ", " : "") + "prix=" + prix + ", quantite="
 				+ quantite + ", selectionne=" + selectionne + ", " + (photo != null ? "photo=" + photo + ", " : "")
 				+ (categorie != null ? "categorie=" + categorie + ", " : "")
-				+ (commande != null ? "commande=" + commande : "") + "]";
+				+ (listeLignecommande != null ? "listeLignecommande=" + listeLignecommande : "") + "]";
 	}
 
 }

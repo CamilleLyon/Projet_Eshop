@@ -35,13 +35,12 @@ public class ClientManagedBean implements Serializable {
 		this.client = new Client();
 	}
 
-	@PostConstruct // cette annotation veut dire que la méthode sera exécutée
-	// après l'instanciation du managed bean
-	public void init() {
-
-		this.liste = clService.getAllClient();
-
-	}
+	// @PostConstruct // cette annotation veut dire que la méthode sera exécutée
+	// // après l'instanciation du managed bean
+	// public void init() {
+	//
+	// this.liste = clService.getAllClient();
+	// }
 
 	public Client getClient() {
 		return client;
@@ -58,26 +57,26 @@ public class ClientManagedBean implements Serializable {
 	public void setListe(List<Client> liste) {
 		this.liste = liste;
 	}
+
 	// méthodes Métiers
-		public String ajouterClient() {
+	public String ajouterClient() {
 
-			// appel de la méthode service
-			clService.addClient(this.client);
+		// appel de la méthode service
+		clService.add(this.client);
 
-			this.liste = clService.getAllClient();
-			return "index";
-		}
-		
+		this.liste = clService.getAll();
+		return "index";
+	}
+
 	public String rechercheClient() {
 
-			this.client = clService.getClientByName(this.client.getNomClient());
+		this.client = clService.getByName(this.client.getNomClient());
 
-			return "recherche";
-		}
-	public String modifierClient(){
-		
-		
-		
+		return "recherche";
+	}
+
+	public String modifierClient() {
+
 		return "index";
 	}
 }

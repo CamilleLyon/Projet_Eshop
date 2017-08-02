@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Client;
 import fr.adaming.model.Commande;
+import fr.adaming.model.Employe;
 
 @Repository
 public class CommandeDaoImpl implements IGenericDao<Commande>{
@@ -69,18 +70,17 @@ public class CommandeDaoImpl implements IGenericDao<Commande>{
 
 	@Override
 	public Commande getByName(String name_co) {
+
+		return null;
+
+	}
+
+
+	@Override
+	public Commande getById(Long id_co) {
 		Session s = sf.getCurrentSession();
 
-		// requete HQL
-		String req = "FROM Commande as c WHERE c.nomCommande=:pNom";
-
-		Query query = s.createQuery(req);
-
-		query.setParameter("pNom", name_co);
-
-		Commande com_rec = (Commande) query.uniqueResult();
-
-		return com_rec;
+		return (Commande) s.get(Commande.class, id_co);
 
 	}
 }

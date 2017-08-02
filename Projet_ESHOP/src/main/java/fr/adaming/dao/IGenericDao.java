@@ -13,5 +13,7 @@ public interface IGenericDao<T> {
 	public List<T> getAll();
 
 	public T getByName(String name_t);
+	
+	public T getById(Long id_cl);
 
 }

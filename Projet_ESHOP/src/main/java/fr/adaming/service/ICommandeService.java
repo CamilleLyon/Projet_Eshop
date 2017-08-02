@@ -10,9 +10,9 @@ public interface ICommandeService {
 
 	public List<Commande> getAll();
 
-	public Commande getByName(String name_co);
-
 	public void update(Commande co);
 
 	public void delete(Long id_co);
+
+	public Commande getById(Long id_co);
 }

@@ -81,4 +81,10 @@ public class ClientDaoImpl implements IGenericDao<Client> {
 		return client_rec;
 
 	}
+
+	@Override
+	public Client getById(Long id_cl) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

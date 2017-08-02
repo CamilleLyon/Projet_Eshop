@@ -22,32 +22,33 @@ public class CommandeServiceImpl implements ICommandeService {
 
 	@Override
 	public void add(Commande co) {
-		// TODO Auto-generated method stub
+		coDao.add(co);
 
 	}
 
 	@Override
 	public List<Commande> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public Commande getByName(String name_co) {
-		// TODO Auto-generated method stub
-		return null;
+		return coDao.getAll();
 	}
 
 	@Override
 	public void update(Commande co) {
-		// TODO Auto-generated method stub
+		coDao.update(co);
 
 	}
 
 	@Override
 	public void delete(Long id_co) {
-		// TODO Auto-generated method stub
 
+		coDao.delete(id_co);
+
+	}
+
+	@Override
+	public Commande getById(Long id_co) {
+		
+		return coDao.getById(id_co);
 	}
 
 }

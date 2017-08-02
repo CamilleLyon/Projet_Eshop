@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Page Recherche</title>
+</h:head>
+
+<h:body>
+	<ui:insert name="header">
+		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
+	</ui:insert>
+
+
+	<p:separator />
+
+	<h1 style="text-align: center; color: red">Formulaire de recherche</h1>
+	<h:form>
+		<h:panelGrid columns="2">
+			<p:outputLabel for="idDesignation" value="Mot clé: " />
+			<p:inputText id="idDesignation" value="#{clMB.produit.nom}" />
+		</h:panelGrid>
+
+		<p:commandButton value="Rechercher" action="#{clMB.rechercheProduit}"
+			update="@all" icon="ui-icon-info" />
+	</h:form>
+
+	<p:spacer height="10" />
+	<p:separator />
+
+	<h1 style="text-align: center">Produit trouvé</h1>
+	<p:dataTable var="produit" value="#{clMB.produit}">
+		<p:column headerText="Designation">
+			<h:outputText value="#{produit.designation}" />
+		</p:column>
+
+		<p:column headerText="Description">
+			<h:outputText value="#{produit.description}" />
+		</p:column>
+
+		<p:column headerText="Prix">
+			<h:outputText value="#{produit.prix}" />
+		</p:column>
+		
+		<p:column headerText="Quantite">
+			<h:outputText value="#{produit.quantite}" />
+		</p:column>
+		
+		<p:column headerText="Photo">
+			<h:outputText value="#{produit.photo}" />
+		</p:column>
+	</p:dataTable>
+
+
+</h:body>
+</html>

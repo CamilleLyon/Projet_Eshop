@@ -32,27 +32,6 @@
 	<p:spacer height="10" />
 	<p:separator />
 
-	<h1 style="text-align: center">Liste des Clients</h1>
-	<h:form>
-		<p:dataTable var="client" value="#{clMB.client}">
-
-			<p:column headerText="Nom">
-				<h:outputText id="idNom" value="#{client.nomClient}" />
-			</p:column>
-
-			<p:column headerText="Adresse">
-				<h:outputText id="idAdresse" value="#{client.adresse}" />
-			</p:column>
-
-			<p:column headerText="Email">
-				<h:outputText id="idEmail" value="#{client.email}" />
-			</p:column>
-
-			<p:column headerText="Telephone">
-				<h:outputText id="idTelephone" value="#{client.tel}" />
-			</p:column>
-		</p:dataTable>
-	</h:form>
 
 </h:body>
 </html>

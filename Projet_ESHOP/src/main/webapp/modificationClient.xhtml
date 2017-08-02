@@ -21,6 +21,9 @@
 		modification</h1>
 	<h:form>
 		<h:panelGrid columns="2">
+			<p:outputLabel for="idId" value="Id : " />
+			<p:inputText id="idId" value="#{clMB.client.idClient}" />
+
 			<p:outputLabel for="idNom" value="Nom du client: " />
 			<p:inputText id="idNom" value="#{clMB.client.nomClient}" />
 
@@ -29,6 +32,10 @@
 
 			<p:outputLabel for="idEmail" value="Email: " />
 			<p:inputText id="idEmail" value="#{clMB.client.email}" />
+			
+			<p:outputLabel for="idTel" value="Telephone : " />
+			<p:inputMask id="idTel" value="#{clMB.client.tel}" />
+			
 		</h:panelGrid>
 
 		<p:commandButton value="Modifier" action="#{clMB.modifierClient}"
@@ -38,26 +45,6 @@
 	<p:spacer height="10" />
 	<p:separator />
 
-	<h1 style="text-align: center">Liste des Clients</h1>
-	<h:form>
-		<p:dataTable var="client" value="#{clMB.client}">
 
-			<p:column headerText="Nom">
-				<h:outputText id="idNom" value="#{client.nomClient}" />
-			</p:column>
-
-			<p:column headerText="Adresse">
-				<h:outputText id="idAdresse" value="#{client.adresse}" />
-			</p:column>
-
-			<p:column headerText="Email">
-				<h:outputText id="idEmail" value="#{client.email}" />
-			</p:column>
-
-			<p:column headerText="Telephone">
-				<h:outputText id="idTelephone" value="#{client.tel}" />
-			</p:column>
-		</p:dataTable>
-	</h:form>
 </h:body>
 </html>

@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "produits")
 public class Produit implements Serializable {
@@ -29,7 +31,10 @@ public class Produit implements Serializable {
 	private String description;
 	private double prix;
 	private int quantite;
+
+	@Column(nullable = false, columnDefinition = "TINYINT", length = 1)
 	private boolean selectionne;
+
 	private String photo;
 
 	@ManyToOne

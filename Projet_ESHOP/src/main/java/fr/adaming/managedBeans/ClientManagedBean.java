@@ -35,7 +35,7 @@ public class ClientManagedBean implements Serializable {
 		this.client = new Client();
 	}
 
-	 @PostConstruct // cette annotation veut dire que la méthode sera exécutée
+	 //@PostConstruct // cette annotation veut dire que la méthode sera exécutée
 	 // après l'instanciation du managed bean
 	 public void init() {
 	

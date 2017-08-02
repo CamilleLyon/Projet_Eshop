@@ -17,6 +17,10 @@
 		<h:form>
 			<p:breadCrumb>
 				<p:menuitem value="Accueil" url="index.xhtml" />
+				<p:menuitem value="Ajouter un produit" url="ajoutProduit.xhtml" />
+				<p:menuitem value="Chercher un produit" url="rechercheProduit.xhtml" />
+				<p:menuitem value="Supprimer un produit"
+					url="rechercheProduit.xhtml" />
 			</p:breadCrumb>
 		</h:form>
 	</ui:composition>
@@ -24,7 +28,8 @@
 	<p:spacer height="10" />
 	<p:separator />
 
-	<h1 style="text-align: center">Et voici les produits dans ton panier</h1>
+	<h1 style="text-align: center">Et voici les produits dans ton
+		panier</h1>
 
 	<p:dataTable var="panier" value="#{...}">
 		<p:column headerText="Photo">
@@ -47,6 +52,10 @@
 			<h:outputText value="#{panier.produit.quantite}" />
 		</p:column>
 
+		<p:column headerText="Opération">
+			<p:commandButton action="#{...}"
+				value="Modifier" update="@all" icon="ui-icon-tag" />
+		</p:column>
 	</p:dataTable>
 
 </h:body>

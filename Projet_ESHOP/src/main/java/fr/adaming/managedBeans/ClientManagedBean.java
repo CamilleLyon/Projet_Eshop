@@ -3,7 +3,6 @@ package fr.adaming.managedBeans;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -12,8 +11,7 @@ import fr.adaming.model.Client;
 import fr.adaming.service.IClientService;
 
 @ManagedBean(name = "clMB")
-@RequestScoped // le conteneur web va instancier un nouveau à chaque fois que je
-				// quitte la page
+@RequestScoped
 public class ClientManagedBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,7 +33,7 @@ public class ClientManagedBean implements Serializable {
 		this.client = new Client();
 	}
 
-	//@PostConstruct // cette annotation veut dire que la méthode sera exécutée
+	// @PostConstruct // cette annotation veut dire que la méthode sera exécutée
 	// après l'instanciation du managed bean
 	public void init() {
 
@@ -60,10 +58,9 @@ public class ClientManagedBean implements Serializable {
 
 	// méthodes Métiers
 	public String ajouterClient() {
-		System.out.println(this.client);
+
 		// appel de la méthode service
 		clService.add(this.client);
-		System.out.println("apres " + this.client);
 
 		this.liste = clService.getAll();
 		return "index";

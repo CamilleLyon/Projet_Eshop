@@ -9,26 +9,21 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.adaming.dao.IGenericDao;
 import fr.adaming.model.Client;
 
-@Service("clientServiceBean") // l'annotation pour la définition d'un bean de
-// service spécifique à
-// Spring IoC
-@Transactional // annotation pour spécifier que la méthode est transactionnelle.
-// On peut la mettre sur la classe pour que toutes les méthodes
-// le soit !!
+@Service("clientServiceBean")
+@Transactional 
 public class ClientServiceImpl implements IClientService {
 
-	// transformation de l'association UML en Java
-	@Autowired // annotation pour l'injection de dépendance
+	
+	@Autowired 
 	private IGenericDao<Client> clDao;
 
-	// pour l'injeciton par modificateur
+	
 	public void setClDao(IGenericDao<Client> clDao) {
 		this.clDao = clDao;
 	}
 
 	@Override
 	public void add(Client cl) {
-		// appel de la méthode de DAO
 		clDao.add(cl);
 
 	}

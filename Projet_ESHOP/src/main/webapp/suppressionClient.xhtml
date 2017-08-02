@@ -17,45 +17,42 @@
 	</ui:insert>
 
 	<p:separator />
-	<h1 style="text-align: center; color: red">Formulaire de recherche pour suppression</h1>
+	<h1 style="text-align: center; color: red">Formulaire de
+		suppression</h1>
 	<h:form>
 		<h:panelGrid columns="2">
-			<p:outputLabel for="idNom" value="Nom du client: " />
-			<p:inputText id="idNom" value="#{clMB.client.nomClient}" />
+			<p:outputLabel for="idId" value="Id : " />
+			<p:inputText id="idId" value="#{clMB.client.idClient}" />
 		</h:panelGrid>
 
-		<p:commandButton value="Rechercher" action="#{clMB.rechercheClient}"
+		<p:commandButton value="Supprimer" action="#{clMB.supprimerClient}"
 			update="@all" icon="ui-icon-info" />
 	</h:form>
 
 	<p:spacer height="10" />
 	<p:separator />
 
-	<h1 style="text-align: center">Client trouvé</h1>
-	<p:dataTable var="client" value="#{clMB.client}">
-		<p:column headerText="Nom du Client">
-			<h:outputText value="#{client.nomClient}" />
-		</p:column>
+	<h1 style="text-align: center">Liste des Clients</h1>
+	<h:form>
+		<p:dataTable var="client" value="#{clMB.client}">
 
-		<p:column headerText="Adresse">
-			<h:outputText value="#{client.adresse}" />
-		</p:column>
+			<p:column headerText="Nom">
+				<h:outputText id="idNom" value="#{client.nomClient}" />
+			</p:column>
 
-		<p:column headerText="Email">
-			<h:outputText value="#{client.email}" />
-		</p:column>
+			<p:column headerText="Adresse">
+				<h:outputText id="idAdresse" value="#{client.adresse}" />
+			</p:column>
 
-		<p:column headerText="Telephone">
-			<h:outputText value="#{client.tel}" />
-		</p:column>
+			<p:column headerText="Email">
+				<h:outputText id="idEmail" value="#{client.email}" />
+			</p:column>
 
-		<p:column headerText="Opération">
-			<p:commandButton action="#{clMB.supprimerClient}" value="Supprimer"
-				update="@all" icon="ui-icon-tag" />
-		</p:column>
-
-	</p:dataTable>
-
+			<p:column headerText="Telephone">
+				<h:outputText id="idTelephone" value="#{client.tel}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
 
 </h:body>
 </html>

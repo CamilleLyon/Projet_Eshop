@@ -17,45 +17,45 @@
 	</ui:insert>
 
 	<p:separator />
-	<h1 style="text-align: center; color: red">Formulaire de recherche
-		pour modification</h1>
+	<h1 style="text-align: center; color: red">Formulaire de
+		modification</h1>
 	<h:form>
 		<h:panelGrid columns="2">
 			<p:outputLabel for="idNom" value="Nom du client: " />
 			<p:inputText id="idNom" value="#{clMB.client.nomClient}" />
+
+			<p:outputLabel for="idAdresse" value="Adresse: " />
+			<p:inputText id="idAdresse" value="#{clMB.client.adresse}" />
+
+			<p:outputLabel for="idEmail" value="Email: " />
+			<p:inputText id="idEmail" value="#{clMB.client.email}" />
 		</h:panelGrid>
 
-		<p:commandButton value="Rechercher"
-			action="#{clMB.chercherClientPourModif}" update="@all"
-			icon="ui-icon-info" />
+		<p:commandButton value="Modifier" action="#{clMB.modifierClient}"
+			update="@all" icon="ui-icon-info" />
 	</h:form>
 
 	<p:spacer height="10" />
 	<p:separator />
 
-	<h1 style="text-align: center">Client à modifier</h1>
+	<h1 style="text-align: center">Liste des Clients</h1>
 	<h:form>
 		<p:dataTable var="client" value="#{clMB.client}">
 
 			<p:column headerText="Nom">
-				<h:inputText id="idNom" value="#{client.nomClient}" />
+				<h:outputText id="idNom" value="#{client.nomClient}" />
 			</p:column>
 
 			<p:column headerText="Adresse">
-				<h:inputText id="idAdresse" value="#{client.adresse}" />
+				<h:outputText id="idAdresse" value="#{client.adresse}" />
 			</p:column>
 
 			<p:column headerText="Email">
-				<h:inputText id="idEmail" value="#{client.email}" />
+				<h:outputText id="idEmail" value="#{client.email}" />
 			</p:column>
 
 			<p:column headerText="Telephone">
-				<h:inputText id="idTelephone" value="#{client.tel}" />
-			</p:column>
-
-			<p:column headerText="Opération">
-				<p:commandButton action="#{clMB.modifierClient(client)}"
-					value="Modifier" update="@all" icon="ui-icon-tag" />
+				<h:outputText id="idTelephone" value="#{client.tel}" />
 			</p:column>
 		</p:dataTable>
 	</h:form>

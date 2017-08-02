@@ -25,8 +25,9 @@
 			<p:inputText id="idNom" value="#{clMB.client.nomClient}" />
 		</h:panelGrid>
 
-		<p:commandButton value="Rechercher" action="#{clMB.rechercheClient}"
-			update="@all" icon="ui-icon-info" />
+		<p:commandButton value="Rechercher"
+			action="#{clMB.chercherClientPourModif}" update="@all"
+			icon="ui-icon-info" />
 	</h:form>
 
 	<p:spacer height="10" />
@@ -37,7 +38,7 @@
 		<p:dataTable var="client" value="#{clMB.client}">
 
 			<p:column headerText="Nom">
-				<h:inputText id="idNom" value="#{client.nom}" />
+				<h:inputText id="idNom" value="#{client.nomClient}" />
 			</p:column>
 
 			<p:column headerText="Adresse">
@@ -47,7 +48,7 @@
 			<p:column headerText="Email">
 				<h:inputText id="idEmail" value="#{client.email}" />
 			</p:column>
-			
+
 			<p:column headerText="Telephone">
 				<h:inputText id="idTelephone" value="#{client.tel}" />
 			</p:column>
@@ -57,5 +58,6 @@
 					value="Modifier" update="@all" icon="ui-icon-tag" />
 			</p:column>
 		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

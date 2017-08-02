@@ -13,8 +13,7 @@ import fr.adaming.model.Client;
 @Repository
 public class ClientDaoImpl implements IGenericDao<Client> {
 
-	
-	@Autowired 
+	@Autowired
 	private SessionFactory sf;
 
 	// pour l'injection de dépendance
@@ -33,14 +32,20 @@ public class ClientDaoImpl implements IGenericDao<Client> {
 
 	@Override
 	public void update(Client cl) {
-		// TODO Auto-generated method stub
+		// ouvrir une session (bus qui véhicule les données vers la Db)
+		Session s = sf.getCurrentSession();
 
+		// modifier le client dans le context Hibernate
+		s.saveOrUpdate(cl);
 	}
 
 	@Override
-	public void delete(int idCl) {
-		// TODO Auto-generated method stub
+	public void delete(Long id_cl) {
+		// ouvrir une session (bus qui véhicule les données vers la Db)
+		Session s = sf.getCurrentSession();
 
+		// modifier l'employé dans le context Hibernate
+		s.delete(s.get(Client.class, id_cl));
 	}
 
 	@Override
@@ -64,8 +69,16 @@ public class ClientDaoImpl implements IGenericDao<Client> {
 	public Client getByName(String name_cl) {
 		Session s = sf.getCurrentSession();
 
-		return (Client) s.get(Client.class, name_cl);
+		// requete HQL
+		String req = "FROM Client as c WHERE c.nomClient=:pNom";
+
+		Query query = s.createQuery(req);
+
+		query.setParameter("pNom", name_cl);
+
+		Client client_rec = (Client) query.uniqueResult();
+
+		return client_rec;
 
 	}
-
 }

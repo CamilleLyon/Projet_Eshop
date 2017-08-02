@@ -8,7 +8,7 @@ public interface IGenericDao<T> {
 
 	public void update(T t);
 
-	public void delete(int t);
+	public void delete(Long id_cl);
 
 	public List<T> getAll();
 

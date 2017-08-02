@@ -3,9 +3,11 @@ package fr.adaming.managedBeans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import fr.adaming.model.Client;
 import fr.adaming.service.IClientService;
@@ -75,6 +77,21 @@ public class ClientManagedBean implements Serializable {
 
 	public String modifierClient() {
 
+		clService.update(this.client);
+
+		this.liste = clService.getAll();
+
 		return "index";
 	}
+
+	public String supprimerClient() {
+
+		clService.delete(this.client.getIdClient());
+
+		this.liste = clService.getAll();
+
+		return "index";
+
+	}
+
 }

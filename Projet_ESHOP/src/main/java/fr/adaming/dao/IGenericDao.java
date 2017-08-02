@@ -12,6 +12,6 @@ public interface IGenericDao<T> {
 
 	public List<T> getAll();
 
-	public T getByName(String t);
+	public T getByName(String name_t);
 
 }

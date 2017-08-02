@@ -10,7 +10,7 @@ public interface IClientService {
 
 	public List<Client> getAllClient();
 
-	public Client getClientByName(int id_cl);
+	public Client getClientByName(String name_cl);
 
 	public void updateClient(Client cl);
 

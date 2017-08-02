@@ -36,12 +36,12 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public List<Client> getAllClient() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return clDao.getAll();
 	}
 
 	@Override
-	public Client getClientByName(int id_cl) {
+	public Client getClientByName(String name_cl) {
 		// TODO Auto-generated method stub
 		return null;
 	}

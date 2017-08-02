@@ -61,10 +61,10 @@ public class ClientDaoImpl  implements IGenericDao<Client>{
 	}
 
 	@Override
-	public Client getByName(String cl) {
+	public Client getByName(String name_cl) {
 		Session s = sf.getCurrentSession();
 
-		return (Client) s.get(Client.class, cl);
+		return (Client) s.get(Client.class, name_cl);
 
 	}
 

@@ -22,7 +22,7 @@ public class ClientManagedBean implements Serializable {
 	private Client client;
 	private List<Client> liste;
 
-	@ManagedProperty(value = "#{employeServiceBean}")
+	@ManagedProperty(value = "#{clientServiceBean}")
 	private IClientService clService;
 
 	public void setClService(IClientService clService) {
@@ -67,4 +67,17 @@ public class ClientManagedBean implements Serializable {
 			this.liste = clService.getAllClient();
 			return "index";
 		}
+		
+	public String rechercheClient() {
+
+			this.client = clService.getClientByName(this.client.getNomClient());
+
+			return "recherche";
+		}
+	public String modifierClient(){
+		
+		
+		
+		return "index";
+	}
 }

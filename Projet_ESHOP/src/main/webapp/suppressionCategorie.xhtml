@@ -8,12 +8,12 @@
 
 
 <h:head>
-	<title>Page Suppression Client</title>
+	<title>Page Suppression Categorie</title>
 </h:head>
 
 <h:body>
 	<ui:insert name="header">
-		<ui:include src="/templates/headerTemplateIndex.xhtml"></ui:include>
+		<ui:include src="/templates/headerTemplateCategorie.xhtml"></ui:include>
 	</ui:insert>
 
 	<p:separator />
@@ -22,10 +22,10 @@
 	<h:form>
 		<h:panelGrid columns="2">
 			<p:outputLabel for="idId" value="Id : " />
-			<p:inputText id="idId" value="#{clMB.client.idClient}" />
+			<p:inputText id="idId" value="#{caMB.categorie.idCategorie}" />
 		</h:panelGrid>
 
-		<p:commandButton value="Supprimer" action="#{clMB.supprimerClient}"
+		<p:commandButton value="Supprimer" action="#{caMB.supprimerCategorie}"
 			update="@all" icon="ui-icon-info" />
 	</h:form>
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Page Recherche Categorie</title>
+</h:head>
+<h:body>
+
+	<ui:insert name="header">
+		<ui:include src="/templates/headerTemplateCategorie.xhtml"></ui:include>
+	</ui:insert>
+
+
+	<p:separator />
+
+	<h1 style="text-align: center; color: red">Formulaire de recherche</h1>
+	<h:form>
+		<h:panelGrid columns="2">
+			<p:outputLabel for="idNom" value="Nom de la categorie: " />
+			<p:inputText id="idNom" value="#{caMB.categorie.nomCategorie}" />
+		</h:panelGrid>
+
+		<p:commandButton value="Rechercher" action="#{caMB.rechercheCategorie}"
+			update="@all" icon="ui-icon-info" />
+	</h:form>
+
+	<p:spacer height="10" />
+	<p:separator />
+
+	<h1 style="text-align: center">Categorie trouvée</h1>
+	<p:dataTable var="cat" value="#{caMB.categorie}">
+		<p:column headerText="Nom de la categorie">
+			<h:outputText value="#{cat.nomCategorie}" />
+		</p:column>
+
+		<p:column headerText="Photo">
+			<h:outputText value="#{cat.photo}" />
+		</p:column>
+
+		<p:column headerText="Description">
+			<h:outputText value="#{cat.description}" />
+		</p:column>
+		
+	</p:dataTable>
+
+
+</h:body>
+</html>

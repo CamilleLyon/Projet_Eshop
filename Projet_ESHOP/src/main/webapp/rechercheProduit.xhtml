@@ -12,7 +12,7 @@
 
 <h:body>
 	<ui:insert name="header">
-		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
+		<ui:include src="/templates/headerTemplateProduit.xhtml"></ui:include>
 	</ui:insert>
 
 
@@ -22,10 +22,10 @@
 	<h:form>
 		<h:panelGrid columns="2">
 			<p:outputLabel for="idDesignation" value="Mot clé: " />
-			<p:inputText id="idDesignation" value="#{clMB.produit.nom}" />
+			<p:inputText id="idDesignation" value="#{prMB.produit.designation}" />
 		</h:panelGrid>
 
-		<p:commandButton value="Rechercher" action="#{clMB.rechercheProduit}"
+		<p:commandButton value="Rechercher" action="#{prMB.rechercheProduit}"
 			update="@all" icon="ui-icon-info" />
 	</h:form>
 
@@ -33,7 +33,7 @@
 	<p:separator />
 
 	<h1 style="text-align: center">Produit trouvé</h1>
-	<p:dataTable var="produit" value="#{clMB.produit}">
+	<p:dataTable var="produit" value="#{prMB.produit}">
 		<p:column headerText="Designation">
 			<h:outputText value="#{produit.designation}" />
 		</p:column>

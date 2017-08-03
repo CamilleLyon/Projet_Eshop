@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>Page Modification Categorie</title>
+</h:head>
+
+<h:body>
+	<ui:insert name="header">
+		<ui:include src="/templates/headerTemplateCategorie.xhtml"></ui:include>
+	</ui:insert>
+
+	<p:separator />
+	<h1 style="text-align: center; color: red">Formulaire de
+		modification</h1>
+	<h:form>
+		<h:panelGrid columns="2">
+			<p:outputLabel for="idId" value="Id : " />
+			<p:inputText id="idId" value="#{caMB.categorie.idCategorie}" />
+
+			<p:outputLabel for="idNom" value="Nom: " />
+			<p:inputText id="idNom" value="#{caMB.categorie.nomCategorie}" />
+			
+			<p:outputLabel for="idPhoto" value="Photo: " />
+			<p:inputMask id="idPhoto" value="#{caMB.categorie.photo}" />
+			
+			<p:outputLabel for="idDescription" value="Description: " />
+			<p:inputText id="idDescription" value="#{caMB.categorie.description}" />
+		</h:panelGrid>
+
+		<p:commandButton value="Modifier" action="#{caMB.modifierCategorie}"
+			update="@all" icon="ui-icon-info" />
+	</h:form>
+
+	<p:spacer height="10" />
+	<p:separator />
+
+
+</h:body>
+</html>

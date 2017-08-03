@@ -3,6 +3,7 @@ package fr.adaming.managedBeans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -33,8 +34,7 @@ public class ClientManagedBean implements Serializable {
 		this.client = new Client();
 	}
 
-	// @PostConstruct // cette annotation veut dire que la méthode sera exécutée
-	// après l'instanciation du managed bean
+	@PostConstruct
 	public void init() {
 
 		this.liste = clService.getAll();

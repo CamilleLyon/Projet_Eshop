@@ -13,7 +13,7 @@
 
 <h:body>
 	<ui:insert name="header">
-		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
+		<ui:include src="/templates/headerTemplateIndex.xhtml"></ui:include>
 	</ui:insert>
 	
 	<h:form>
@@ -33,6 +33,29 @@
 		
 		<p:commandButton value="Ajouter" action="#{clMB.ajouterClient}"  />
 	</h:form>
+	
+	<p:separator />
+	<h1 style="text-align: center; color: red;">Liste des employés</h1>
+
+	<p:dataTable var="client" value="#{clMB.liste}">
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{client.nomClient}" />
+		</p:column>
+
+		<p:column headerText="Adresse">
+			<h:outputText value="#{client.adresse}" />
+		</p:column>
+
+		<p:column headerText="Email">
+			<h:outputText value="#{client.email}" />
+		</p:column>
+		
+		<p:column headerText="Telephone">
+			<h:outputText value="#{client.tel}" />
+		</p:column>
+	</p:dataTable>
+	
 	
 </h:body>
 </html>

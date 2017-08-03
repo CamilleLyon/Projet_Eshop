@@ -80,7 +80,7 @@ public class ProduitManagedBean implements Serializable {
 
 	public String supprimerProduit() {
 
-		pService.delete(this.produit.getIdClient());
+		pService.delete(this.produit.getIdProduit());
 
 		this.liste = pService.getAll();
 

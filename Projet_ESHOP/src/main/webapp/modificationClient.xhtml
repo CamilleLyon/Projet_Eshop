@@ -32,10 +32,10 @@
 
 			<p:outputLabel for="idEmail" value="Email: " />
 			<p:inputText id="idEmail" value="#{clMB.client.email}" />
-			
+
 			<p:outputLabel for="idTel" value="Telephone : " />
 			<p:inputMask id="idTel" value="#{clMB.client.tel}" />
-			
+
 		</h:panelGrid>
 
 		<p:commandButton value="Modifier" action="#{clMB.modifierClient}"
@@ -44,6 +44,31 @@
 
 	<p:spacer height="10" />
 	<p:separator />
+	<h1 style="text-align: center; color: red;">Liste des clients</h1>
+
+	<p:dataTable var="client" value="#{clMB.liste}">
+
+		<p:column headerText="Id">
+			<h:outputText value="#{client.idClient}" />
+		</p:column>
+		
+		<p:column headerText="Nom">
+			<h:outputText value="#{client.nomClient}" />
+		</p:column>
+
+		<p:column headerText="Adresse">
+			<h:outputText value="#{client.adresse}" />
+		</p:column>
+
+		<p:column headerText="Email">
+			<h:outputText value="#{client.email}" />
+		</p:column>
+
+		<p:column headerText="Telephone">
+			<h:outputText value="#{client.tel}" />
+		</p:column>
+	</p:dataTable>
+
 
 
 </h:body>

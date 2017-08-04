@@ -3,6 +3,7 @@ package fr.adaming.managedBeans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -31,6 +32,7 @@ public class ProduitManagedBean implements Serializable {
 		this.produit = new Produit();
 	}
 
+	@PostConstruct
 	public void init() {
 
 		this.liste = pService.getAll();

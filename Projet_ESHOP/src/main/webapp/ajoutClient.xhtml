@@ -15,27 +15,32 @@
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplateIndex.xhtml"></ui:include>
 	</ui:insert>
+
+	<h2 style="text-align: center; color: grey">Formulaire d'ajout de
+		client</h2>
+	<div align="center">
+		<h:form>
+			<h:panelGrid columns="2">
+				<p:outputLabel for="idNom" value="Nom: " />
+				<p:inputMask id="idNom" value="#{clMB.client.nomClient}" />
+
+				<p:outputLabel for="idAdresse" value="Adresse: " />
+				<p:inputMask id="idAdresse" value="#{clMB.client.adresse}" />
+
+				<p:outputLabel for="idEmail" value="Email : " />
+				<p:inputMask id="idEmail" value="#{clMB.client.email}" />
+
+				<p:outputLabel for="idTel" value="Telephone : " />
+				<p:inputMask id="idTel" value="#{clMB.client.tel}" />
+			</h:panelGrid>
+
+			<p:commandButton value="Ajouter" action="#{clMB.ajouterClient}" />
+		</h:form>
+	</div>
 	
-	<h:form>
-		<h:panelGrid columns="2">
-			<p:outputLabel for="idNom" value="Nom: " />
-			<p:inputMask id="idNom" value="#{clMB.client.nomClient}" />
-			
-			<p:outputLabel for="idAdresse" value="Adresse: " />
-			<p:inputMask id="idAdresse" value="#{clMB.client.adresse}" />
-			
-			<p:outputLabel for="idEmail" value="Email : " />
-			<p:inputMask id="idEmail" value="#{clMB.client.email}" />
-			
-			<p:outputLabel for="idTel" value="Telephone : " />
-			<p:inputMask id="idTel" value="#{clMB.client.tel}" />
-		</h:panelGrid>
-		
-		<p:commandButton value="Ajouter" action="#{clMB.ajouterClient}"  />
-	</h:form>
-	
+	<p:spacer height="10" />
 	<p:separator />
-	<h1 style="text-align: center; color: red;">Liste des clients</h1>
+	<h2 style="text-align: center; color: olive">Liste des clients</h2>
 
 	<p:dataTable var="client" value="#{clMB.liste}">
 
@@ -50,12 +55,12 @@
 		<p:column headerText="Email">
 			<h:outputText value="#{client.email}" />
 		</p:column>
-		
+
 		<p:column headerText="Telephone">
 			<h:outputText value="#{client.tel}" />
 		</p:column>
 	</p:dataTable>
-	
-	
+
+
 </h:body>
 </html>

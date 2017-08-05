@@ -15,22 +15,48 @@
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplateCategorie.xhtml"></ui:include>
 	</ui:insert>
-	
-	<h:form>
-		<h:panelGrid columns="2">
-			<p:outputLabel for="idNom" value="Nom de la categorie: " />
-			<p:inputMask id="idNom" value="#{caMB.categorie.nomCategorie}" />
-			
-			<p:outputLabel for="idPhoto" value="Photo: " />
-			<p:inputMask id="idPhoto" value="#{caMB.categorie.photo}" />
-			
-			<p:outputLabel for="idDescription" value="Description: " />
-			<p:inputMask id="idDescription" value="#{caMB.categorie.description}" />
 
-		</h:panelGrid>
-		
-		<p:commandButton value="Ajouter" action="#{caMB.ajouterProduit}"  />
-	</h:form>
-	
+	<h2 style="text-align: center; color: grey">Formulaire d'ajout
+		d'une categorie</h2>
+	<div align="center">
+		<h:form>
+			<h:panelGrid columns="2">
+				<p:outputLabel for="idNom" value="Nom de la categorie: " />
+				<p:inputMask id="idNom" value="#{caMB.categorie.nomCategorie}" />
+
+				<p:outputLabel for="idPhoto" value="Photo: " />
+				<p:inputMask id="idPhoto" value="#{caMB.categorie.photo}" />
+
+				<p:outputLabel for="idDescription" value="Description: " />
+				<p:inputMask id="idDescription"
+					value="#{caMB.categorie.description}" />
+
+			</h:panelGrid>
+
+			<p:commandButton value="Ajouter" action="#{caMB.ajouterProduit}" />
+		</h:form>
+	</div>
+
+
+	<p:spacer height="10" />
+	<p:separator />
+	<h2 style="text-align: center; color: teal">Liste des catégories</h2>
+	<div align="center">
+		<p:dataTable var="categorie" value="#{caMB.liste}">
+
+			<p:column headerText="Photo">
+				<h:outputText value="#{caMB.categorie.photo}" />
+			</p:column>
+
+			<p:column headerText="Nom">
+				<h:outputText value="#{caMB.categorie.nomCategorie}" />
+			</p:column>
+
+			<p:column headerText="Description">
+				<h:outputText value="#{caMB.categorie.description}" />
+			</p:column>
+		</p:dataTable>
+	</div>
+
 </h:body>
 </html>

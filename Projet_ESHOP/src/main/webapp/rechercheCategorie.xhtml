@@ -18,36 +18,40 @@
 
 	<p:separator />
 
-	<h1 style="text-align: center; color: red">Formulaire de recherche</h1>
-	<h:form>
-		<h:panelGrid columns="2">
-			<p:outputLabel for="idNom" value="Nom de la categorie: " />
-			<p:inputText id="idNom" value="#{caMB.categorie.nomCategorie}" />
-		</h:panelGrid>
+	<h2 style="text-align: center; color: grey">Formulaire de
+		recherche</h2>
+	<div align="center">
+		<h:form>
+			<h:panelGrid columns="2">
+				<p:outputLabel for="idNom" value="Nom de la categorie: " />
+				<p:inputText id="idNom" value="#{caMB.categorie.nomCategorie}" />
+			</h:panelGrid>
 
-		<p:commandButton value="Rechercher" action="#{caMB.rechercheCategorie}"
-			update="@all" icon="ui-icon-info" />
-	</h:form>
+			<p:commandButton value="Rechercher"
+				action="#{caMB.rechercheCategorie}" update="@all"
+				icon="ui-icon-info" />
+		</h:form>
+	</div>
 
 	<p:spacer height="10" />
 	<p:separator />
 
-	<h1 style="text-align: center">Categorie trouvée</h1>
-	<p:dataTable var="cat" value="#{caMB.categorie}">
-		<p:column headerText="Nom de la categorie">
-			<h:outputText value="#{cat.nomCategorie}" />
-		</p:column>
+	<h2 style="text-align: center; color: teal">Categorie trouvée</h2>
+	<div align="center">
+		<p:dataTable var="cat" value="#{caMB.categorie}">
+			<p:column headerText="Photo">
+				<h:outputText value="#{cat.photo}" />
+			</p:column>
 
-		<p:column headerText="Photo">
-			<h:outputText value="#{cat.photo}" />
-		</p:column>
+			<p:column headerText="Nom de la categorie">
+				<h:outputText value="#{cat.nomCategorie}" />
+			</p:column>
 
-		<p:column headerText="Description">
-			<h:outputText value="#{cat.description}" />
-		</p:column>
-		
-	</p:dataTable>
-
+			<p:column headerText="Description">
+				<h:outputText value="#{cat.description}" />
+			</p:column>
+		</p:dataTable>
+	</div>
 
 </h:body>
 </html>

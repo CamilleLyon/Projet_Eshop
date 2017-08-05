@@ -17,29 +17,53 @@
 	</ui:insert>
 
 	<p:separator />
-	<h1 style="text-align: center; color: red">Formulaire de
-		modification</h1>
-	<h:form>
-		<h:panelGrid columns="2">
-			<p:outputLabel for="idId" value="Id : " />
-			<p:inputText id="idId" value="#{caMB.categorie.idCategorie}" />
+	<h2 style="text-align: center; color: grey">Formulaire de
+		modification</h2>
+	<div align="center">
+		<h:form>
+			<h:panelGrid columns="2">
+				<p:outputLabel for="idId" value="Id : " />
+				<p:inputText id="idId" value="#{caMB.categorie.idCategorie}" />
 
-			<p:outputLabel for="idNom" value="Nom: " />
-			<p:inputText id="idNom" value="#{caMB.categorie.nomCategorie}" />
-			
-			<p:outputLabel for="idPhoto" value="Photo: " />
-			<p:inputMask id="idPhoto" value="#{caMB.categorie.photo}" />
-			
-			<p:outputLabel for="idDescription" value="Description: " />
-			<p:inputText id="idDescription" value="#{caMB.categorie.description}" />
-		</h:panelGrid>
+				<p:outputLabel for="idNom" value="Nom: " />
+				<p:inputText id="idNom" value="#{caMB.categorie.nomCategorie}" />
 
-		<p:commandButton value="Modifier" action="#{caMB.modifierCategorie}"
-			update="@all" icon="ui-icon-info" />
-	</h:form>
+				<p:outputLabel for="idDescription" value="Description: " />
+				<p:inputText id="idDescription"
+					value="#{caMB.categorie.description}" />
+
+				<p:outputLabel for="idPhoto" value="Photo: " />
+				<p:inputMask id="idPhoto" value="#{caMB.categorie.photo}" />
+			</h:panelGrid>
+
+			<p:commandButton value="Modifier" action="#{caMB.modifierCategorie}"
+				update="@all" icon="ui-icon-info" />
+		</h:form>
+	</div>
 
 	<p:spacer height="10" />
 	<p:separator />
+
+	<h2 style="text-align: center; color: teal">Liste des catégories</h2>
+	<div align="center">
+		<p:dataTable var="categorie" value="#{caMB.liste}">
+			<p:column headerText="ID">
+				<h:outputText value="#{caMB.categorie.idCategorie}" />
+			</p:column>
+			
+			<p:column headerText="Photo">
+				<h:outputText value="#{caMB.categorie.photo}" />
+			</p:column>
+
+			<p:column headerText="Nom">
+				<h:outputText value="#{caMB.categorie.nomCategorie}" />
+			</p:column>
+
+			<p:column headerText="Description">
+				<h:outputText value="#{caMB.categorie.description}" />
+			</p:column>
+		</p:dataTable>
+	</div>
 
 
 </h:body>

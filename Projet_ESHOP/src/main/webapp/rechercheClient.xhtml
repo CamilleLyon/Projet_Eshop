@@ -18,21 +18,25 @@
 
 	<p:separator />
 
-	<h1 style="text-align: center; color: red">Formulaire de recherche</h1>
-	<h:form>
-		<h:panelGrid columns="2">
-			<p:outputLabel for="idNom" value="Nom du client: " />
-			<p:inputText id="idNom" value="#{clMB.client.nomClient}" />
-		</h:panelGrid>
+	<h2 style="text-align: center; color: grey">Formulaire de
+		recherche</h2>
+	<div align="center">
+		<h:form>
+			<h:panelGrid columns="2">
+				<p:outputLabel for="idNom" value="Nom du client: " />
+				<p:inputText id="idNom" value="#{clMB.client.nomClient}" />
+			</h:panelGrid>
 
-		<p:commandButton value="Rechercher" action="#{clMB.rechercheClient}"
-			update="@all" icon="ui-icon-info" />
-	</h:form>
-
+			<p:commandButton value="Rechercher" action="#{clMB.rechercheClient}"
+				update="@all" icon="ui-icon-info" />
+		</h:form>
+	</div>
+	
 	<p:spacer height="10" />
 	<p:separator />
 
-	<h1 style="text-align: center">Client trouvé</h1>
+	<h2 style="text-align: center; color: olive">Client trouvé</h2>
+	<div align="center">
 	<p:dataTable var="client" value="#{clMB.client}">
 		<p:column headerText="Nom du Client">
 			<h:outputText value="#{client.nomClient}" />
@@ -45,13 +49,12 @@
 		<p:column headerText="Email">
 			<h:outputText value="#{client.email}" />
 		</p:column>
-		
+
 		<p:column headerText="Telephone">
 			<h:outputText value="#{client.tel}" />
 		</p:column>
-		
 	</p:dataTable>
-
+</div>
 
 </h:body>
 </html>

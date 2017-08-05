@@ -17,41 +17,43 @@
 	</ui:insert>
 
 	<p:separator />
-	<h1 style="text-align: center; color: red">Formulaire de
-		modification</h1>
-	<h:form>
-		<h:panelGrid columns="2">
-			<p:outputLabel for="idId" value="Id : " />
-			<p:inputText id="idId" value="#{clMB.client.idClient}" />
+	<h2 style="text-align: center; color: gray">Formulaire de
+		modification</h2>
+	<div align="center">
+		<h:form>
+			<h:panelGrid columns="2">
+				<p:outputLabel for="idId" value="Id : " />
+				<p:inputText id="idId" value="#{clMB.client.idClient}" />
 
-			<p:outputLabel for="idNom" value="Nom du client: " />
-			<p:inputText id="idNom" value="#{clMB.client.nomClient}" />
+				<p:outputLabel for="idNom" value="Nom du client: " />
+				<p:inputText id="idNom" value="#{clMB.client.nomClient}" />
 
-			<p:outputLabel for="idAdresse" value="Adresse: " />
-			<p:inputText id="idAdresse" value="#{clMB.client.adresse}" />
+				<p:outputLabel for="idAdresse" value="Adresse: " />
+				<p:inputText id="idAdresse" value="#{clMB.client.adresse}" />
 
-			<p:outputLabel for="idEmail" value="Email: " />
-			<p:inputText id="idEmail" value="#{clMB.client.email}" />
+				<p:outputLabel for="idEmail" value="Email: " />
+				<p:inputText id="idEmail" value="#{clMB.client.email}" />
 
-			<p:outputLabel for="idTel" value="Telephone : " />
-			<p:inputMask id="idTel" value="#{clMB.client.tel}" />
+				<p:outputLabel for="idTel" value="Telephone : " />
+				<p:inputMask id="idTel" value="#{clMB.client.tel}" />
 
-		</h:panelGrid>
+			</h:panelGrid>
 
-		<p:commandButton value="Modifier" action="#{clMB.modifierClient}"
-			update="@all" icon="ui-icon-info" />
-	</h:form>
+			<p:commandButton value="Modifier" action="#{clMB.modifierClient}"
+				update="@all" icon="ui-icon-info" />
+		</h:form>
+	</div>
 
 	<p:spacer height="10" />
 	<p:separator />
-	<h1 style="text-align: center; color: red;">Liste des clients</h1>
+	<h2 style="text-align: center; color: olive">Liste des clients</h2>
 
 	<p:dataTable var="client" value="#{clMB.liste}">
 
 		<p:column headerText="Id">
 			<h:outputText value="#{client.idClient}" />
 		</p:column>
-		
+
 		<p:column headerText="Nom">
 			<h:outputText value="#{client.nomClient}" />
 		</p:column>

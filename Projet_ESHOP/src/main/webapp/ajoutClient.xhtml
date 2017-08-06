@@ -37,30 +37,30 @@
 			<p:commandButton value="Ajouter" action="#{clMB.ajouterClient}" />
 		</h:form>
 	</div>
-	
+
 	<p:spacer height="10" />
 	<p:separator />
 	<h2 style="text-align: center; color: olive">Liste des clients</h2>
+	<div align="center">
+		<p:dataTable var="client" value="#{clMB.liste}">
 
-	<p:dataTable var="client" value="#{clMB.liste}">
+			<p:column headerText="Nom">
+				<h:outputText value="#{client.nomClient}" />
+			</p:column>
 
-		<p:column headerText="Nom">
-			<h:outputText value="#{client.nomClient}" />
-		</p:column>
+			<p:column headerText="Adresse">
+				<h:outputText value="#{client.adresse}" />
+			</p:column>
 
-		<p:column headerText="Adresse">
-			<h:outputText value="#{client.adresse}" />
-		</p:column>
+			<p:column headerText="Email">
+				<h:outputText value="#{client.email}" />
+			</p:column>
 
-		<p:column headerText="Email">
-			<h:outputText value="#{client.email}" />
-		</p:column>
-
-		<p:column headerText="Telephone">
-			<h:outputText value="#{client.tel}" />
-		</p:column>
-	</p:dataTable>
-
+			<p:column headerText="Telephone">
+				<h:outputText value="#{client.tel}" />
+			</p:column>
+		</p:dataTable>
+	</div>
 
 </h:body>
 </html>

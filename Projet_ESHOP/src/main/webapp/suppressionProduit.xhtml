@@ -8,35 +8,26 @@
 
 
 <h:head>
-	<title>Page Ajout Chiens</title>
+	<title>Page Suppression Chiens</title>
 </h:head>
 
 <h:body>
 	<ui:insert name="header">
-		<ui:include src="/templates/headerTemplateProduit.xhtml"></ui:include>
+		<ui:include src="/templates/headerTemplateIndex.xhtml"></ui:include>
 	</ui:insert>
 
-	<h2 style="text-align: center; color: grey">Formulaire d'ajout de Chiots</h2>
+	<p:separator />
+	<h2 style="text-align: center; color: grey">Formulaire de
+		suppression des chiots</h2>
 	<div align="center">
 		<h:form>
 			<h:panelGrid columns="2">
-				<p:outputLabel for="idDesignation" value="Designation: " />
-				<p:inputMask id="idDesignation" value="#{prMB.produit.designation}" />
-
-				<p:outputLabel for="idDescription" value="Description : " />
-				<p:inputMask id="idDescription" value="#{prMB.produit.description}" />
-
-				<p:outputLabel for="idPrix" value="Prix : " />
-				<p:inputMask id="idPrix" value="#{prMB.produit.prix}" />
-
-				<p:outputLabel for="idQuantite" value="Quantite: " />
-				<p:inputMask id="idQuantite" value="#{prMB.produit.quantite}" />
-
-				<p:outputLabel for="idPhoto" value="Photo: " />
-				<p:inputMask id="idPhoto" value="#{prMB.produit.photo}" />
+				<p:outputLabel for="idId" value="Id : " />
+				<p:inputText id="idId" value="#{prMB.produit.idProduit}" />
 			</h:panelGrid>
 
-			<p:commandButton value="Ajouter" action="#{prMB.ajouterProduit}" />
+			<p:commandButton value="Supprimer" action="#{prMB.supprimerProduit}"
+				update="@all" icon="ui-icon-info" />
 		</h:form>
 	</div>
 
@@ -67,6 +58,8 @@
 			</p:column>
 		</p:dataTable>
 	</div>
+
+
 
 </h:body>
 </html>

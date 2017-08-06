@@ -63,14 +63,14 @@ public class ClientManagedBean implements Serializable {
 		clService.add(this.client);
 
 		this.liste = clService.getAll();
-		return "index";
+		return "ajoutClient";
 	}
 
 	public String rechercheClient() {
 
 		this.client = clService.getByName(this.client.getNomClient());
 
-		return "recherche";
+		return "rechercheClient";
 	}
 
 	public String modifierClient() {
@@ -79,7 +79,7 @@ public class ClientManagedBean implements Serializable {
 
 		this.liste = clService.getAll();
 
-		return "index";
+		return "modificationClient";
 	}
 
 	public String supprimerClient() {
@@ -88,7 +88,7 @@ public class ClientManagedBean implements Serializable {
 
 		this.liste = clService.getAll();
 
-		return "index";
+		return "suppressionClient";
 
 	}
 

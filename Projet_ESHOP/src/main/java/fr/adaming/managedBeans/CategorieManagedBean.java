@@ -59,14 +59,14 @@ public class CategorieManagedBean implements Serializable {
 		caService.add(this.categorie);
 
 		this.liste = caService.getAll();
-		return "index";
+		return "ajoutCategorie";
 	}
 
 	public String rechercheCategorie() {
 
 		this.categorie = caService.getByName(this.categorie.getNomCategorie());
 
-		return "recherche";
+		return "rechercheCategorie";
 	}
 
 	public String modifierCategorie() {
@@ -75,7 +75,7 @@ public class CategorieManagedBean implements Serializable {
 
 		this.liste = caService.getAll();
 
-		return "index";
+		return "modificationCategorie";
 	}
 
 	public String supprimerCategorie() {
@@ -84,7 +84,7 @@ public class CategorieManagedBean implements Serializable {
 
 		this.liste = caService.getAll();
 
-		return "index";
+		return "suppressionCategorie";
 
 	}
 

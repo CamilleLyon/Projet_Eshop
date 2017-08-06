@@ -8,15 +8,17 @@
 
 
 <h:head>
-	<title>Page Ajout Chiens</title>
+	<title>Page Modification Chiens</title>
 </h:head>
 
 <h:body>
 	<ui:insert name="header">
-		<ui:include src="/templates/headerTemplateProduit.xhtml"></ui:include>
+		<ui:include src="/templates/headerTemplateIndex.xhtml"></ui:include>
 	</ui:insert>
 
-	<h2 style="text-align: center; color: grey">Formulaire d'ajout de Chiots</h2>
+	<p:separator />
+	<h2 style="text-align: center; color: grey">Formulaire de
+		modification des chiots disponibles</h2>
 	<div align="center">
 		<h:form>
 			<h:panelGrid columns="2">
@@ -36,7 +38,8 @@
 				<p:inputMask id="idPhoto" value="#{prMB.produit.photo}" />
 			</h:panelGrid>
 
-			<p:commandButton value="Ajouter" action="#{prMB.ajouterProduit}" />
+			<p:commandButton value="Modifier" action="#{prMB.modifierProduit}"
+				update="@all" icon="ui-icon-info" />
 		</h:form>
 	</div>
 
@@ -67,6 +70,7 @@
 			</p:column>
 		</p:dataTable>
 	</div>
+
 
 </h:body>
 </html>

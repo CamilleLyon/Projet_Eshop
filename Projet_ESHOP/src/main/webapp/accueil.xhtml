@@ -19,7 +19,6 @@
 						<p:column>
 							<p:submenu label="Accueil">
 								<p:menuitem value="Accueil" url="index.xhtml" />
-								<p:menuitem value="Accueil" url="index.xhtml" />
 							</p:submenu>
 						</p:column>
 					</p:submenu>
@@ -191,11 +190,21 @@
 	<!-- 		</ui:define> -->
 	<!-- 	</ui:composition> -->
 
-	<!-- 	<p:galleria value="#{imagesView.images}" var="image" scope="session"> -->
-	<!-- 		<p:graphicImage value="#{imagesView.imageItem}"> -->
-	<!-- 			<f:param name="nameImage" value="#{image}" /> -->
-	<!-- 		</p:graphicImage> -->
-	<!-- 	</p:galleria> -->
+	<!-- 		<p:galleria value="#{imagesView.images}" var="image" scope="session"> -->
+	<!-- 			<p:graphicImage value="#{imagesView.imageItem}"> -->
+	<!-- 				<f:param name="nameImage" value="#{image}" /> -->
+	<!-- 			</p:graphicImage> -->
+	<!-- 		</p:galleria> -->
+	<h:form>
+
+		<p:imageSwitch effect="fade" id="fadeEffect">
+			<ui:repeat value="#{imagesView.images}" var="image"
+				id="fadeEffectImages">
+				<p:graphicImage name="/src/main/webapp/images/#{image}" id="image" />
+			</ui:repeat>
+		</p:imageSwitch>
+
+	</h:form>
 </h:body>
 
 

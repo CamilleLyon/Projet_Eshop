@@ -20,7 +20,7 @@
 	<div align="center">
 		<h:form>
 			<h:panelGrid columns="2">
-				<p:outputLabel for="idDesignation" value="Designation: " />
+				<p:outputLabel for="idDesignation" value="Designation : " />
 				<p:inputMask id="idDesignation" value="#{prMB.produit.designation}" />
 
 				<p:outputLabel for="idDescription" value="Description : " />
@@ -29,11 +29,15 @@
 				<p:outputLabel for="idPrix" value="Prix : " />
 				<p:inputMask id="idPrix" value="#{prMB.produit.prix}" />
 
-				<p:outputLabel for="idQuantite" value="Quantite: " />
+				<p:outputLabel for="idQuantite" value="Quantite : " />
 				<p:inputMask id="idQuantite" value="#{prMB.produit.quantite}" />
 
-				<p:outputLabel for="idPhoto" value="Photo: " />
+				<p:outputLabel for="idPhoto" value="Photo : " />
 				<p:inputMask id="idPhoto" value="#{prMB.produit.photo}" />
+				
+				<p:outputLabel for="idCategorie" value="Catégorie : " />
+				<p:inputMask id="idCategorie" value="#{prMB.produit.categorie}" />
+				
 			</h:panelGrid>
 
 			<p:commandButton value="Ajouter" action="#{prMB.ajouterProduit}" />

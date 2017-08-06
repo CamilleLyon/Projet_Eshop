@@ -12,52 +12,37 @@
 </h:head>
 
 <h:body>
-
-	<ui:composition>
-		<h:form>
-			<p:breadCrumb>
-				<p:menuitem value="Accueil" url="index.xhtml" />
-				<p:menuitem value="Ajouter un produit" url="ajoutProduit.xhtml" />
-				<p:menuitem value="Chercher un produit" url="rechercheProduit.xhtml" />
-				<p:menuitem value="Supprimer un produit"
-					url="rechercheProduit.xhtml" />
-			</p:breadCrumb>
-		</h:form>
-	</ui:composition>
-
-	<p:spacer height="10" />
 	<p:separator />
+	<h2 style="text-align: center; color: grey">Panier</h2>
+		<div align="center">
+	<p:dataTable var="produit" value="#{paMB.findall}" >
+		<p:column headerText="Photo">
+			<h:outputText value="#{produit.photo}" />
+		</p:column>
 
-	<h1 style="text-align: center">Et voici les produits dans ton
-		panier</h1>
+		<p:column headerText="Designation">
+			<h:outputText value="#{produit.designation}" />
+		</p:column>
 
-	<!-- 	<p:dataTable var="panier" value="#{...}"> -->
-	<!-- 		<p:column headerText="Photo"> -->
-	<!-- 			<h:outputText value="#{panier.produit.photo}" /> -->
-	<!-- 		</p:column> -->
+		<p:column headerText="Description">
+			<h:outputText value="#{produit.description}" />
+		</p:column>
 
-	<!-- 		<p:column headerText="Designation"> -->
-	<!-- 			<h:outputText value="#{panier.produit.designation}" /> -->
-	<!-- 		</p:column> -->
+		<p:column headerText="Prix">
+			<h:outputText value="#{produit.prix}" />
+		</p:column>
 
-	<!-- 		<p:column headerText="Description"> -->
-	<!-- 			<h:outputText value="#{panier.produit.description}" /> -->
-	<!-- 		</p:column> -->
+		<p:column headerText="Quantite">
+			<h:outputText value="#{produit.quantite}" />
+		</p:column>
 
-	<!-- 		<p:column headerText="Prix"> -->
-	<!-- 			<h:outputText value="#{panier.produit.prix}" /> -->
-	<!-- 		</p:column> -->
-
-	<!-- 		<p:column headerText="Quantite"> -->
-	<!-- 			<h:outputText value="#{panier.produit.quantite}" /> -->
-	<!-- 		</p:column> -->
-
-	<!-- 		<p:column headerText="Opération"> -->
-	<!-- 			<p:commandButton action="#{...}" -->
-	<!-- 				value="Modifier" update="@all" icon="ui-icon-tag" /> -->
-	<!-- 		</p:column> -->
-	<!-- 	</p:dataTable> -->
-	
+		<p:column headerText="Panier">
+			<p:commandButton action="#{paMB.ajouterPanier}" value="Ajouter"
+				update="@all" />
+			<p:commandButton action="#{paMB.supprimerPanier}" value="Supprimer"
+				update="@all" />
+		</p:column>
+	</p:dataTable>
+</div>
 </h:body>
 </html>
-

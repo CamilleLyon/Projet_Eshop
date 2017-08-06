@@ -68,7 +68,7 @@ public class ProduitManagedBean implements Serializable {
 
 		this.produit = pService.getByName(this.produit.getDesignation());
 
-		return "index";
+		return "rechercheProduit";
 	}
 
 	public String modifierProduit() {

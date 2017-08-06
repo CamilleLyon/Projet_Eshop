@@ -37,6 +37,10 @@
 		disponibles</h2>
 	<div align="center">
 		<p:dataTable var="produit" value="#{prMB.liste}">
+			<p:column headerText="Id">
+				<h:outputText value="#{produit.idProduit}" />
+			</p:column>
+			
 			<p:column headerText="Photo">
 				<h:outputText value="#{produit.photo}" />
 			</p:column>

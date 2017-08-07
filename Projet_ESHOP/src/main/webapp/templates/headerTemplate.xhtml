@@ -1,0 +1,73 @@
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>Page Ajout Catégorie</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:growl id="messages" />
+
+		<p:menubar>
+			<p:submenu label="Accueil" icon="ui-icon-document">
+				<p:menuitem value="Accueil" icon="ui-icon-contact"
+					url="index.xhtml" />
+				<p:menuitem value="Panier" icon="ui-icon-search"
+					url="panier.xhtml" />
+			</p:submenu>
+			
+			<p:submenu label="Client" icon="ui-icon-document">
+				<p:menuitem value="Ajouter" icon="ui-icon-contact"
+					url="ajoutClient.xhtml" />
+				<p:menuitem value="Modifier" icon="ui-icon-contact"
+					url="modificationClient.xhtml" />
+				<p:menuitem value="Rechercher" icon="ui-icon-search"
+					url="rechercheClient.xhtml" />
+				<p:menuitem value="Supprimer" icon="ui-icon-close"
+					url="suppressionClient.xhtml" />
+			</p:submenu>
+
+			<p:submenu label="Les catégories de chiens" icon="ui-icon-document">
+				<p:menuitem value="Ajouter" icon="ui-icon-contact" url="ajoutCategorie.xhtml" />
+				<p:menuitem value="Modifier" icon="ui-icon-contact" url="modificationCategorie.xhtml" />
+				<p:menuitem value="Rechercher" icon="ui-icon-search"
+					url="rechercheCategorie.xhtml" />
+				<p:menuitem value="Supprimer" icon="ui-icon-close"
+					url="suppressionCategorie.xhtml" />
+			</p:submenu>
+
+			<p:submenu label="Les bébés chiens" icon="ui-icon-document">
+				<p:menuitem value="Ajouter" icon="ui-icon-contact"
+					url="ajoutProduit.xhtml" />
+				<p:menuitem value="Modifier" icon="ui-icon-contact"
+					url="modificationProduit.xhtml" />
+				<p:menuitem value="Rechercher" icon="ui-icon-search"
+					url="rechercheProduit.xhtml" />
+				<p:menuitem value="Supprimer" icon="ui-icon-close"
+					url="suppressionProduit.xhtml" />
+			</p:submenu>
+
+			<p:submenu label="Commande" icon="ui-icon-document">
+				<p:menuitem value="Ajouter" icon="ui-icon-contact" url="#" />
+				<p:menuitem value="Modifier" icon="ui-icon-contact" url="#" />
+				<p:menuitem value="Rechercher" icon="ui-icon-search" url="#" />
+				<p:menuitem value="Supprimer" icon="ui-icon-close"
+					url="#" />
+				<p:separator />
+				<p:menuitem value="Afficher Panier" icon="ui-icon-search"
+					url="panier.xhtml" />
+			</p:submenu>
+
+		</p:menubar>
+	</h:form>
+
+
+</h:body>
+</html>

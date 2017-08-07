@@ -1,5 +1,9 @@
 package fr.adaming.service;
 
+/**
+ * Implémentations de IClientService pour Client
+ * @author Projet Camille
+ */
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

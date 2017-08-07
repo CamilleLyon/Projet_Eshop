@@ -1,5 +1,8 @@
 package fr.adaming.service;
 
+/**
+ * Interface pour les méthodes Service de Client, mêmes méthodes que DAO
+ */
 import java.util.List;
 
 import fr.adaming.model.Client;

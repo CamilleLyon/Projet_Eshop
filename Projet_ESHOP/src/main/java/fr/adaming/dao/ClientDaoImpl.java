@@ -10,6 +10,13 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Client;
 
+/**
+ * Implémentations de IGeneric DAO pour Client
+ * 
+ * @author Projet Camille
+ * 
+ */
+
 @Repository
 public class ClientDaoImpl implements IGenericDao<Client> {
 

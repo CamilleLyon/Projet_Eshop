@@ -11,6 +11,12 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.Client;
 import fr.adaming.model.Commande;
 
+/**
+ * Implémentations IGeneric DAO pour Commande
+ * 
+ * @author Projet Camille
+ * 
+ */
 @Repository
 public class CommandeDaoImpl implements IGenericDao<Commande>{
 

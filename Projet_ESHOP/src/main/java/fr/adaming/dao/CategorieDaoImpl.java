@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Categorie;
 
+/**
+ * Implémentations IGeneric DAO pour Categorie
+ * 
+ * @author Projet Camille
+ * 
+ */
 @Repository
 public class CategorieDaoImpl implements IGenericDao<Categorie> {
 

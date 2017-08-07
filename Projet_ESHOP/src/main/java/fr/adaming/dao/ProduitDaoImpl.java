@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Produit;
 
+/**
+ * Implémentations de IGeneric DAO pour Produit
+ * 
+ * @author Projet Camille
+ * 
+ */
 @Repository
 public class ProduitDaoImpl implements IGenericDao<Produit> {
 

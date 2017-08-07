@@ -1,5 +1,9 @@
 package fr.adaming.managedBeans;
 
+/**
+ * Méthodes managed bean !
+ * @author Projet Camille
+ */
 import java.io.Serializable;
 import java.util.List;
 

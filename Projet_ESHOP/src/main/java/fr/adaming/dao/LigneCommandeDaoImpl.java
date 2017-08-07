@@ -11,6 +11,12 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.Commande;
 import fr.adaming.model.LigneCommande;
 
+/**
+ * Implémentations IGeneric DAO pour LigneCommande
+ * 
+ * @author Projet Camille
+ * 
+ */
 @Repository
 public class LigneCommandeDaoImpl implements IGenericDao<LigneCommande>{
 

@@ -8,9 +8,14 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import fr.adaming.model.Commande;
 import fr.adaming.model.Panier;
 
+/**
+ * Implémentations IGeneric DAO pour Panier
+ * 
+ * @author Projet Camille
+ * 
+ */
 @Repository
 public class PanierDaoImpl implements IGenericDao<Panier> {
 

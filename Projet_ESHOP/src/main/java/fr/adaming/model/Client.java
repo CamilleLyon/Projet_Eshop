@@ -1,6 +1,7 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,30 +13,71 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Déclaration des attributs, getters/setters et constructeurs pour la classe
+ * Client
+ * 
+ * @author Projet Camille
+ *
+ */
 @Entity
 @Table(name = "clients")
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Attributs du Client
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cl")
+	/**
+	 * id du client
+	 */
 	private Long idClient;
 
+	/**
+	 * nom du client
+	 */
 	private String nomClient;
+	/**
+	 * adresse du client
+	 */
 	private String adresse;
+	/**
+	 * email du client
+	 */
 	private String email;
+	/**
+	 * telephone du cllient
+	 */
 	private String tel;
 
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+	/**
+	 * list des commandes du client
+	 */
 	private List<Commande> listeCommandes;
 
+	/**
+	 * Constructeur vide
+	 */
 	public Client() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
+	/**
+	 * Constructeur avec tous les arguments
+	 * 
+	 * @param idClient
+	 * @param nomClient
+	 * @param adresse
+	 * @param email
+	 * @param tel
+	 * @param listeCommandes
+	 */
 	public Client(Long idClient, String nomClient, String adresse, String email, String tel,
 			List<Commande> listeCommandes) {
 		super();
@@ -47,6 +89,15 @@ public class Client implements Serializable {
 		this.listeCommandes = listeCommandes;
 	}
 
+	/**
+	 * Constructeur sans id
+	 * 
+	 * @param nomClient
+	 * @param adresse
+	 * @param email
+	 * @param tel
+	 * @param listeCommandes
+	 */
 	public Client(String nomClient, String adresse, String email, String tel, List<Commande> listeCommandes) {
 		super();
 		this.nomClient = nomClient;
@@ -56,6 +107,14 @@ public class Client implements Serializable {
 		this.listeCommandes = listeCommandes;
 	}
 
+	/**
+	 * Constructeur sans id ni liste de commandes
+	 * 
+	 * @param nomClient
+	 * @param adresse
+	 * @param email
+	 * @param tel
+	 */
 	public Client(String nomClient, String adresse, String email, String tel) {
 		super();
 		this.nomClient = nomClient;
@@ -64,6 +123,11 @@ public class Client implements Serializable {
 		this.tel = tel;
 	}
 
+	/**
+	 * Getters et setters des attibuts
+	 * 
+	 * @return
+	 */
 	public Long getIdClient() {
 		return idClient;
 	}

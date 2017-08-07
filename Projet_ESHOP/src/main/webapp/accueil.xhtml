@@ -9,41 +9,35 @@
 
 <h:body>
 
-	<ui:composition>
-		<h:form id="form">
-			<h:panelGrid columns="2" cellpadding="5">
+	<!-- 	<ui:composition> -->
+	<h:form>
 
-				<p:megaMenu orientation="#{viewMB.orientation}"
-					style="margin-top:20px">
-					<p:submenu>
-						<p:column>
-							<p:submenu label="Accueil">
-								<p:menuitem value="Accueil" url="index.xhtml" />
-								<p:menuitem value="Accueil" url="index.xhtml" />
-							</p:submenu>
-						</p:column>
-					</p:submenu>
 
-					<p:submenu>
-						<p:column>
-							<p:submenu label="Edition de Catégories">
-								<p:menuitem value="Ajouter une categorie"
-									url="ajoutCategorie.xhtml" icon="" />
-								<p:menuitem value="Accueil" url="index.xhtml" />
-								<p:menuitem value="Chercher une categorie"
-									url="rechercheCategorie.xhtml" />
-								<p:menuitem value="Supprimer une categorie"
-									url="suppressionCategorie.xhtml" />
-								<p:menuitem value="Modifier une categorie"
-									url="modificationCategorie.xhtml" />
-							</p:submenu>
-						</p:column>
-					</p:submenu>
+		<p:menubar>
+			<p:submenu label="Accueil">
+				<p:menuitem value="Accueil" url="index.xhtml" />
+				<p:menuitem value="Accueil" url="index.xhtml" />
+			</p:submenu>
 
-				</p:megaMenu>
- </h:panelGrid>
-		</h:form>
-	</ui:composition>
+
+
+			<p:submenu label="Edition de Catégories">
+				<p:menuitem value="Ajouter une categorie" url="ajoutCategorie.xhtml"
+					icon="" />
+				<p:menuitem value="Accueil" url="index.xhtml" />
+				<p:menuitem value="Chercher une categorie"
+					url="rechercheCategorie.xhtml" />
+				<p:menuitem value="Supprimer une categorie"
+					url="suppressionCategorie.xhtml" />
+				<p:menuitem value="Modifier une categorie"
+					url="modificationCategorie.xhtml" />
+			</p:submenu>
+
+
+		</p:menubar>
+
+	</h:form>
+	<!-- 	</ui:composition> -->
 	<!-- 	<ui:composition> -->
 	<!-- 		<ui:define name="implementation"> -->
 

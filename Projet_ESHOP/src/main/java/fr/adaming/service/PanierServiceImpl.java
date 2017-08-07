@@ -6,49 +6,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.adaming.dao.IPanierDao;
-import fr.adaming.model.Produit;
+import fr.adaming.dao.IGenericDao;
+import fr.adaming.model.Panier;
 
 @Service("panierServiceBean")
 @Transactional
-public class PanierServiceImpl implements IPanierService<Produit> {
+public class PanierServiceImpl implements IPanierService {
 
 	@Autowired
-	private IPanierDao<Produit> paDao;
+	private IGenericDao<Panier> paDao;
 
-	
-	public void setPaDao(IPanierDao<Produit> paDao) {
+	public void setPaDao(IGenericDao<Panier> paDao) {
 		this.paDao = paDao;
 	}
 
 	@Override
-	public boolean add(Produit o) {
-		paDao.add(o);
-		return false;
+	public void add(Panier pa) {
+		paDao.add(pa);
+
 	}
 
 	@Override
-	public boolean update(Produit o) {
-		paDao.update(o);
-		return false;
+	public void update(Panier pa) {
+		paDao.update(pa);
+
 	}
 
 	@Override
-	public boolean delete(Produit o) {
-		paDao.delete(o);
-		return false;
+	public void delete(Long id_pa) {
+		paDao.delete(id_pa);
+
 	}
 
 	@Override
-	public List<Produit> getAll() {
+	public Panier getById(Long id_pa) {
+		
+		return paDao.getById(id_pa);
+	}
+
+	@Override
+	public List<Panier> getAll() {
 		
 		return paDao.getAll();
-	}
-
-	@Override
-	public Produit getById(int id) {
-		
-		return paDao.getById(id);
 	}
 
 }

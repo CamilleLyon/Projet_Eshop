@@ -2,17 +2,17 @@ package fr.adaming.dao;
 
 import java.util.List;
 
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import fr.adaming.model.Produit;
+import fr.adaming.model.Commande;
+import fr.adaming.model.Panier;
 
 @Repository
-public class PanierDaoImpl implements IPanierDao<Produit> {
+public class PanierDaoImpl implements IGenericDao<Panier> {
 
 	@Autowired
 	private SessionFactory sf;
@@ -23,74 +23,57 @@ public class PanierDaoImpl implements IPanierDao<Produit> {
 	}
 
 	@Override
-	public boolean add(Produit o) {
-		try {
-			// ouvrir une session (bus qui véhicule les données vers la Db)
-			Session s = sf.getCurrentSession();
-
-			// ajouter le client dans le context Hibernate
-			s.save(o);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean update(Produit o) {
-		try {
-			// ouvrir une session (bus qui véhicule les données vers la Db)
-			Session s = sf.getCurrentSession();
-
-			// modifier le client dans le context Hibernate
-			s.saveOrUpdate(o);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean delete(Produit o) {
-		try {
-			// ouvrir une session (bus qui véhicule les données vers la Db)
-			Session s = sf.getCurrentSession();
-
-			// modifier l'employé dans le context Hibernate
-			s.delete(o);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public List<Produit> getAll() {
-		// ouvrir une session (bus qui véhicule les données vers la Db)
+	public void add(Panier pa) {
 		Session s = sf.getCurrentSession();
+
+		s.save(pa);
+	}
+
+	@Override
+	public void update(Panier pa) {
+		Session s = sf.getCurrentSession();
+
+		s.saveOrUpdate(pa);
+	}
+
+	@Override
+	public void delete(Long id_pa) {
+		Session s = sf.getCurrentSession();
+
+		// modifier l'employé dans le context Hibernate
+		s.delete(s.get(Panier.class, id_pa));
+
+	}
+
+	@Override
+	public List<Panier> getAll() {
+		Session s = sf.getCurrentSession();
+
 		// requete HQL
-		String req = "FROM Produit";
+		String req = "FROM Panier";
 
 		Query query = s.createQuery(req);
 
 		// envoie de la requète et récupération du résultat
 		@SuppressWarnings("unchecked")
-		List<Produit> listeProduits = query.list();
+		List<Panier> liste = query.list();
 
-		return listeProduits;
+		return liste;
 	}
 
 	@Override
-	public Produit getById(int id) {
+	public Panier getByName(String name_t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-		// ouvrir une session (bus qui véhicule les données vers la Db)
+	@Override
+	public Panier getById(Long id_pa) {
+
 		Session s = sf.getCurrentSession();
-		Produit produit = (Produit) s.get(Produit.class, id);
 
-		return produit;
+		return (Panier) s.get(Panier.class, id_pa);
+
 	}
 
 }

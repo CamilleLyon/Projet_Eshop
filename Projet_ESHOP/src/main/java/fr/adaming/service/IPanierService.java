@@ -2,15 +2,17 @@ package fr.adaming.service;
 
 import java.util.List;
 
-public interface IPanierService<T> {
+import fr.adaming.model.Panier;
 
-	public boolean add(T o);
+public interface IPanierService {
 
-	public boolean update(T o);
+	public void add(Panier pa);
 
-	public boolean delete(T o);
+	public List<Panier> getAll();
 
-	public List<T> getAll();
+	public void update(Panier pa);
 
-	public T getById(int id);
+	public void delete(Long id_pa);
+
+	public Panier getById(Long id_pa);
 }

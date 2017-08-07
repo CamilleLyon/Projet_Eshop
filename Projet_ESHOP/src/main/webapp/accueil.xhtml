@@ -12,6 +12,18 @@
 	<!-- 	<ui:composition> -->
 	<h:form>
 
+<<<<<<< HEAD
+=======
+				<p:megaMenu orientation="#{viewMB.orientation}"
+					style="margin-top:20px">
+					<p:submenu>
+						<p:column>
+							<p:submenu label="Accueil">
+								<p:menuitem value="Accueil" url="index.xhtml" />
+							</p:submenu>
+						</p:column>
+					</p:submenu>
+>>>>>>> branch 'master' of https://github.com/CamilleLyon/Projet_Eshop.git
 
 		<p:menubar>
 			<p:submenu label="Accueil">
@@ -185,11 +197,21 @@
 	<!-- 		</ui:define> -->
 	<!-- 	</ui:composition> -->
 
-	<!-- 	<p:galleria value="#{imagesView.images}" var="image" scope="session"> -->
-	<!-- 		<p:graphicImage value="#{imagesView.imageItem}"> -->
-	<!-- 			<f:param name="nameImage" value="#{image}" /> -->
-	<!-- 		</p:graphicImage> -->
-	<!-- 	</p:galleria> -->
+	<!-- 		<p:galleria value="#{imagesView.images}" var="image" scope="session"> -->
+	<!-- 			<p:graphicImage value="#{imagesView.imageItem}"> -->
+	<!-- 				<f:param name="nameImage" value="#{image}" /> -->
+	<!-- 			</p:graphicImage> -->
+	<!-- 		</p:galleria> -->
+	<h:form>
+
+		<p:imageSwitch effect="fade" id="fadeEffect">
+			<ui:repeat value="#{imagesView.images}" var="image"
+				id="fadeEffectImages">
+				<p:graphicImage name="/src/main/webapp/images/#{image}" id="image" />
+			</ui:repeat>
+		</p:imageSwitch>
+
+	</h:form>
 </h:body>
 
 

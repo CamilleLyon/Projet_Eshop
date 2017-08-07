@@ -1,4 +1,4 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -6,13 +6,26 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
+<h:head>
+	<title>Page accueil</title>
+
+</h:head>
 
 <h:body>
+	<ui:insert name="header">
+		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
+	</ui:insert>
 
-	
+	<div align="center">
+		<h:panelGrid>
+			<h:graphicImage value="/images/back/chiots.jpg" styleClass="pic"
+				height="100%" width="100%" />
+		</h:panelGrid>
+
+
+		<p:button outcome="index" value="Bienvenue" icon="ui-icon-star">
+		</p:button>
+	</div>
 
 </h:body>
-
-
-
 </html>
